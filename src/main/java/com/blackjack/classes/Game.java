@@ -1,15 +1,22 @@
 package com.blackjack.classes;
 
 import com.blackjack.dealer.lib.dealer.Dealer;
-import com.blackjack.deck.lib.deck.Deck;
 import com.blackjack.player.lib.player.Player;
+import com.blackjack.table.lib.table.Table;
 
 public class Game {
 
     public Game(Player player) {
-        Dealer dealer = Dealer.createDealer();
+        Table table = new Table();
+        Dealer dealer = table.getDealer();
+        table.joinPlayer(dealer);
+        table.joinPlayer(player);
 
-        dealer.deck.getDeck().forEach(System.out::println);
+        dealer.deal(table.getPlayers());
+
+        dealer.hand.getHand().forEach(System.out::println);
+        System.out.println("");
+        player.hand.getHand().forEach(System.out::println);
     }
 
     public static Game createGameInstance(Player player) {  return new Game(player); };

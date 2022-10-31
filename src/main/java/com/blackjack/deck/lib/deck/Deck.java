@@ -4,9 +4,7 @@ import com.blackjack.deck.lib.card.Card;
 import com.blackjack.deck.lib.enums.CardValue;
 import com.blackjack.deck.lib.enums.Suit;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Deck {
     private final Suit[] suitValues = Suit.values();
@@ -19,7 +17,12 @@ public class Deck {
 
     }
 
-    public ArrayList<Card> getDeck() {
+    // Beware of the fact that we could take 52 cards +1 which will cause an error.
+    public Card takeCard() {
+        return deck.remove(0);
+    }
+
+    public ArrayList<Card> getCards() {
         return deck;
     }
     private ArrayList<Card> fillDeck() {
@@ -30,9 +33,5 @@ public class Deck {
             }
         }
         return cards;
-    }
-
-    public static Deck createDeck() {
-        return new Deck();
     }
 }

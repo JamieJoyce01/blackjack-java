@@ -11,5 +11,7 @@ public class Hand {
         return hand;
     }
 
-    public static Hand createHand() { return new Hand(); }
+    public void addCard(Card card) {
+        hand.add(card);
+    }
 }

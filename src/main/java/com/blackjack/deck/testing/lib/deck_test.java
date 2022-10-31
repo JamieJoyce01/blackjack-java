@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class deck_test {
 
-    @BeforeAll
+//    @BeforeAll
 
 
     @Test

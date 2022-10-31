@@ -4,7 +4,9 @@ import com.blackjack.deck.lib.card.Card;
 import com.blackjack.deck.lib.enums.CardValue;
 import com.blackjack.deck.lib.enums.Suit;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
     private final Suit[] suitValues = Suit.values();
@@ -14,12 +16,12 @@ public class Deck {
 
     public Deck() {
         this.deck = fillDeck();
+
     }
 
     public ArrayList<Card> getDeck() {
         return deck;
     }
-
     private ArrayList<Card> fillDeck() {
         ArrayList<Card> cards = new ArrayList<>();
         for (Suit suit : suitValues) {
